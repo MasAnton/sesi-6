@@ -1,22 +1,52 @@
 let body = document.body;
+let info = document.getElementById("info");
+let reload = document.getElementById("reload");
+let buttonDarkMode = document.getElementById("buttonDarkMode");
+let buttonLightMode = document.getElementById("buttonLightMode");
+
 const darkLimit = 5;
 let darkCounter = 0;
 let darkRemainingLeft;
-let info = document.getElementById("info");
+
+buttonLightMode.style.display = "none";
 
 darkmode = () => {
-  if (darkCounter == darkLimit) {
-    console.log("Jatah Habis gan");
+  buttonDarkMode.style.display = "none";
+  buttonLightMode.style.display = "block";
+
+  if (darkRemainingLeft == 1) {
+    info.textContent = "Jatah Habis gan";
+    buttonDarkMode.style.display = "none";
+    reload.textContent = "RESTART";
+    buttonLightMode.style.display = "none";
     return;
   }
-
   darkCounter += 1;
-  let darkRemainingLeft = darkLimit - darkCounter;
+  darkRemainingLeft = darkLimit - darkCounter;
 
   info.textContent = `Udah diklik ${darkCounter}x, Sisa ${darkRemainingLeft}x`;
 
-  console.log("Dark mode di klik sebanyak :", darkCounter);
-  console.log("Kesempatan Anda Tinggal :", darkRemainingLeft);
+  body.classList.toggle("dark");
+};
+
+lightmode = () => {
+  buttonDarkMode.style.display = "";
+  buttonLightMode.style.display = "none";
+
+  if (darkRemainingLeft == 1) {
+    info.textContent = "Jatah Habis gan";
+    buttonDarkMode.style.display = "none";
+    reload.textContent = "RESTART";
+    return;
+  }
+  darkCounter += 1;
+  darkRemainingLeft = darkLimit - darkCounter;
+
+  info.textContent = `Udah diklik ${darkCounter}x, Sisa ${darkRemainingLeft}x`;
 
   body.classList.toggle("dark");
+};
+
+reloadPage = () => {
+  location.reload();
 };
