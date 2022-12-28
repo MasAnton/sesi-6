@@ -1,0 +1,54 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helventica, sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  padding: 15px;
+}
+
+nav a {
+  color: white;
+  padding: 15px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav a:hover {
+  background-color: tomato;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-bottom: 65px;
+}
